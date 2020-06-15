@@ -1,0 +1,40 @@
+.rtb--tags {
+  font-family: "Lato", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.rtb--tag {
+  border-radius: 4px;
+  display: inline-block;
+  padding: 3px 9px;
+}
+
+.rtb--tag + .rtb--tag {
+  margin-left: 1em;
+}
+
+.rtb--tag.rtb--tag-green {
+  background-color: #59a80f;
+  color: white;
+}
+
+.rtb--tag.rtb--tag-yellow {
+  background-color: #ffdd57;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.rtb--tag.rtb--tag-red {
+  background-color: #9b1313;
+  color: white;
+}
+
+.rtb--icon {
+  display: inline-block;
+  height: 12px;
+  margin-right: 1em;
+  position: relative;
+  top: 2px;
+  width: 12px;
+}

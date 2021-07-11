@@ -4,7 +4,7 @@ A Chrome extension for displaying rubytoolbox gem data on rubygems.org.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/kddeisz/rubytoolbox-chrome.
+Bug reports and pull requests are welcome on GitHub at https://github.com/kddnewton/rubytoolbox-chrome.
 
 ## License
 

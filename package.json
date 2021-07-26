@@ -1,0 +1,22 @@
+{
+  "name": "rubytoolbox-chrome",
+  "description": "A Chrome extension for displaying rubytoolbox gem data on rubygems.org.",
+  "private": true,
+  "main": "contentScript.js",
+  "scripts": {
+    "zip": "tsc && zip -r extension.zip icons contentScript.{css,js} manifest.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kddnewton/rubytoolbox-chrome.git"
+  },
+  "author": "Kevin Newton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kddnewton/rubytoolbox-chrome/issues"
+  },
+  "homepage": "https://github.com/kddnewton/rubytoolbox-chrome#readme",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
+}

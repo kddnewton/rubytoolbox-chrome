@@ -1,3 +1,25 @@
+namespace RubyToolbox {
+  // Documentation from https://www.ruby-toolbox.com/pages/docs/api/projects
+  export interface Projects {
+    projects: Project[]
+  }
+
+  interface Project {
+    health: {
+      overall_level: string,
+      statuses: Status[]
+    },
+    name: string
+  }
+
+  interface Status {
+    key: string,
+    icon: "diamond" | "github" | "heartbeat",
+    label: string,
+    level: string
+  }
+}
+
 // Paths taken from font-awesome (https://fontawesome.com/license)
 const statusIcons = {
   diamond: {
@@ -14,14 +36,14 @@ const statusIcons = {
   }
 };
 
-const makeStatusIcon = (status) => {
-  const { viewBox, path } = statusIcons[status.icon];
+function makeStatusIcon(icon: keyof typeof statusIcons) {
+  const { viewBox, path } = statusIcons[icon];
 
   const svgNode = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   const pathNode = document.createElementNS("http://www.w3.org/2000/svg", "path");
 
   svgNode.setAttribute("class", "rtb--icon");
-  svgNode.setAttribute("aria-hidden", true);
+  svgNode.setAttribute("aria-hidden", "true");
   svgNode.setAttribute("role", "img");
   svgNode.setAttribute("viewBox", viewBox);
 
@@ -30,26 +52,26 @@ const makeStatusIcon = (status) => {
   svgNode.appendChild(pathNode);
 
   return svgNode;
-};
+}
 
 const { pathname } = document.location;
 const gemName = pathname.slice(pathname.lastIndexOf("/") + 1);
 
 fetch(`https://www.ruby-toolbox.com/api/projects/compare/${gemName}`)
   .then((response) => response.json())
-  .then((response) => {
+  .then((response: RubyToolbox.Projects) => {
     const divNode = document.createElement("div");
     divNode.className = "rtb--tags";
 
-    response.projects[0].health.statuses.forEach((status) => {
+    response.projects[0]!.health.statuses.forEach((status) => {
       const spanNode = document.createElement("span");
       spanNode.className = `rtb--tag rtb--tag-${status.level}`;
 
-      spanNode.appendChild(makeStatusIcon(status));
+      spanNode.appendChild(makeStatusIcon(status.icon));
       spanNode.appendChild(document.createTextNode(status.label));
 
       divNode.appendChild(spanNode);
     });
 
-    document.querySelector(".page__heading").appendChild(divNode);
+    document.querySelector(".page__heading")?.appendChild(divNode);
   });

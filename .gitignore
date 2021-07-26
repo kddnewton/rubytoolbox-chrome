@@ -1,1 +1,3 @@
-extension.zip
+/contentScript.js
+/extension.zip
+/node_modules

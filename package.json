@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/kddnewton/rubytoolbox-chrome#readme",
   "devDependencies": {
-    "typescript": "^4.9.5"
+    "typescript": "^5.0.2"
   }
 }
